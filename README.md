@@ -63,7 +63,14 @@ app/
 git clone https://github.com/D-Danis/test_chats_dj_api.git
 ```
 
-`
+### 1.1  Добавьте свой .env файл
+```env
+POSTGRES_USER=USER
+POSTGRES_PASSWORD=PASSWORD
+POSTGRES_DB=DB
+DB_HOST=db
+DB_PORT=5432
+```
 
 ### 2. Запустить с Docker
 
