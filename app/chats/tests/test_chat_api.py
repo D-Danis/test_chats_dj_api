@@ -24,7 +24,7 @@ class ChatAPITestCase(APITestCase):
         url = reverse('chat-list')
         with CaptureQueriesContext(connection) as queries:
             response = self.client.get(url)
-        chats = Chat.objects.all()
+        chats = Chat.objects.all().prefetch_related('messages')
         serializer_data = ChatSerializer(chats,many=True).data
         self.assertEqual(status.HTTP_200_OK, response.status_code)
         logger.info("Status Code: HTTP 200 OK")

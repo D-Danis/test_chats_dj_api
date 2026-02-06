@@ -9,7 +9,7 @@ class ChatApiTestCase(TestCase):
         chat_1 = Chat.objects.create(title="Test Chat_1")
         chat_2 = Chat.objects.create(title="Test Chat_2")
         message = Message.objects.create(chat=chat_1, text="Test Message 1")
-        chats = Chat.objects.all()
+        chats = Chat.objects.all().prefetch_related('messages')
         serializer_data = ChatSerializer(chats, many=True).data
         expected_data = [
             {

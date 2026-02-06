@@ -5,7 +5,7 @@ from chats.serializers import ChatSerializer, MessageSerializer
 
 
 class ChatViewSet(ModelViewSet):
-    queryset = Chat.objects.all()
+    queryset = Chat.objects.all().prefetch_related('messages')
     serializer_class = ChatSerializer
 
 
